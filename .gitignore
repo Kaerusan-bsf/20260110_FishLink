@@ -1,0 +1,12 @@
+# SQLite database
+fishlink.db
+fishlink.db.bak-*
+*.bak-*
+
+# Python cache
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
