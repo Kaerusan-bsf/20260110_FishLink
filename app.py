@@ -1047,7 +1047,10 @@ def screen_monitor():
                 f"{t('lbl.preferred_window')}: "
                 f"{translate_preferred_window(request.get('preferred_time_window') or '')}"
             )
-            st.write(f"Fish condition: {request['fish_condition']}")
+            st.write(
+                f"{t('lbl.fish_condition')}: "
+                f"{translate_fish_condition(request['fish_condition'])}"
+            )
             if farm and farm.get("contact"):
                 st.write(f"{t('lbl.contact')}: {farm['contact']}")
             if restaurant and restaurant.get("contact"):
