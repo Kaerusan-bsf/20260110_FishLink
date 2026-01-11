@@ -339,3 +339,16 @@ def avg_rating_for_farm(farm_id):
     if row is None or row["avg_stars"] is None:
         return None
     return float(row["avg_stars"])
+
+
+def get_review_by_request(request_id):
+    with get_conn() as conn:
+        row = conn.execute(
+            """
+            SELECT id, request_id, farm_id, restaurant_id, stars, comment
+            FROM reviews
+            WHERE request_id = ?
+            """,
+            (request_id,),
+        ).fetchone()
+    return _row_to_dict(row)

@@ -8,6 +8,7 @@ from repo import (
     create_listing,
     create_request,
     create_review,
+    get_review_by_request,
     get_farm,
     get_listing,
     get_request,
@@ -123,6 +124,8 @@ class RepoTests(unittest.TestCase):
         self.assertIsInstance(review_id, int)
         avg_rating = avg_rating_for_farm(farm_id)
         self.assertAlmostEqual(avg_rating, 4.0)
+        review = get_review_by_request(request_id)
+        self.assertEqual(review["stars"], 4)
 
 
 if __name__ == "__main__":
